@@ -1,0 +1,4 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: промежуточный каталог (x64\Debug\) содержит файлы, которые используются совместно с другим проектом (labirint.vcxproj).  Это может привести к ошибкам очистки и перестроения.
+  cw.cpp
+C:\Users\User\Desktop\Code\cw\cw\cw.cpp(16,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  cw.vcxproj -> C:\Users\User\Desktop\Code\cw\x64\Debug\cw.exe
