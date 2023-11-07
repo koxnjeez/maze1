@@ -1,4 +1,4 @@
-﻿#include "settings.h"
+#include "settings.h"
 #include "fuctions.h"
 
 // enumeration - перечисление
@@ -38,13 +38,13 @@ int main()
 				SetCursor(x, y, BLACK, " ");
 			}
 			else if (maze[y][x] == WALL) { 
-				SetCursor(x, y, GRAY, "#"); 
+				SetCursorChar(x, y, GRAY, (char)177); 
 			}
 			else if (maze[y][x] == COIN) {
-				SetCursor(x, y, YELLOW, ".");
+				SetCursorChar(x, y, YELLOW, (char)249);
 			}
 			else if (maze[y][x] == ENEMY) {
-				SetCursor(x, y, RED, "o");
+				SetCursorChar(x, y, RED, (char)1);
 			}
 			else if (maze[y][x] == MEDICINE_KIT) {
 				SetCursor(x, y, GREEN, "+");
@@ -63,7 +63,7 @@ int main()
 	COORD position;
 	position.X = 0;
 	position.Y = 2;
-	SetCursor(0, 2, PINK, "o");
+	SetCursorChar(0, 2, PINK, (char)1);
 
 	int coins = 0; // количество подобраных монет
 	int health = 100; // здоровье
@@ -144,7 +144,7 @@ int main()
 			write = true;
 		}
 
-		SetCursor(position.X, position.Y, PINK, "o");
+		SetCursorChar(position.X, position.Y, PINK, (char)1);
 
 		///////////////////////////////////////////////////////////////////////
 		// проверка на выход из лабиринта
