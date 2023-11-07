@@ -1,17 +1,28 @@
 void SetCursor(int x, int y, int color, string text)
 {
-	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE); //уникальный номер окна консоли (дескриптор)
+	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE); //СѓРЅРёРєР°Р»СЊРЅС‹Р№ РЅРѕРјРµСЂ РѕРєРЅР° РєРѕРЅСЃРѕР»Рё (РґРµСЃРєСЂРёРїС‚РѕСЂ)
     COORD position;
-    position.X = x; // настройка координат
+    position.X = x; // РЅР°СЃС‚СЂРѕР№РєР° РєРѕРѕСЂРґРёРЅР°С‚
     position.Y = y;
-    SetConsoleCursorPosition(h, position); // установка курсора в координату
-	SetConsoleTextAttribute(h, color); // установка цвета
-	cout << text; // вывод строки текста
+    SetConsoleCursorPosition(h, position); // СѓСЃС‚Р°РЅРѕРІРєР° РєСѓСЂСЃРѕСЂР° РІ РєРѕРѕСЂРґРёРЅР°С‚Сѓ
+	SetConsoleTextAttribute(h, color); // СѓСЃС‚Р°РЅРѕРІРєР° С†РІРµС‚Р°
+	cout << text; // РІС‹РІРѕРґ СЃС‚СЂРѕРєРё С‚РµРєСЃС‚Р°
+}
+
+void SetCursorChar(int x, int y, int color, char text)
+{
+	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE); //СѓРЅРёРєР°Р»СЊРЅС‹Р№ РЅРѕРјРµСЂ РѕРєРЅР° РєРѕРЅСЃРѕР»Рё (РґРµСЃРєСЂРёРїС‚РѕСЂ)
+    COORD position;
+    position.X = x; // РЅР°СЃС‚СЂРѕР№РєР° РєРѕРѕСЂРґРёРЅР°С‚
+    position.Y = y;
+    SetConsoleCursorPosition(h, position); // СѓСЃС‚Р°РЅРѕРІРєР° РєСѓСЂСЃРѕСЂР° РІ РєРѕРѕСЂРґРёРЅР°С‚Сѓ
+	SetConsoleTextAttribute(h, color); // СѓСЃС‚Р°РЅРѕРІРєР° С†РІРµС‚Р°
+	cout << text; // РІС‹РІРѕРґ СЃС‚СЂРѕРєРё С‚РµРєСЃС‚Р°
 }
 
 void HideCursor(bool vision, int size) {
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
-	// скрываем мигающий курсор в консоли
+	// СЃРєСЂС‹РІР°РµРј РјРёРіР°СЋС‰РёР№ РєСѓСЂСЃРѕСЂ РІ РєРѕРЅСЃРѕР»Рё
 	CONSOLE_CURSOR_INFO info;
 	info.bVisible = false;
 	info.dwSize = 100;
@@ -19,14 +30,14 @@ void HideCursor(bool vision, int size) {
 }
 
 void EndProgram(bool fail) {
-	system("cls"); // очистка экрана
+	system("cls"); // РѕС‡РёСЃС‚РєР° СЌРєСЂР°РЅР°
 	if (fail == false) {
-		cout << "You win!!!\n\n"; // main() - перезапуск приложения
+		cout << "You win!!!\n\n"; // main() - РїРµСЂРµР·Р°РїСѓСЃРє РїСЂРёР»РѕР¶РµРЅРёСЏ
 	}
 	else {
-		cout << "You lost :(\n\n"; // main() - перезапуск приложения
+		cout << "You lost :(\n\n"; // main() - РїРµСЂРµР·Р°РїСѓСЃРє РїСЂРёР»РѕР¶РµРЅРёСЏ
 	}
-	Sleep(INFINITE); // пауза до того момента пока пользователь не закроет программу
+	Sleep(INFINITE); // РїР°СѓР·Р° РґРѕ С‚РѕРіРѕ РјРѕРјРµРЅС‚Р° РїРѕРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅРµ Р·Р°РєСЂРѕРµС‚ РїСЂРѕРіСЂР°РјРјСѓ
 }
 
 void walls(int x, int y, int width, int height, int arr[][60], int elem) {
